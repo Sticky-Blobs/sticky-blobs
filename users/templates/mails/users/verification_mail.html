@@ -1,0 +1,13 @@
+{% extends "mails/layouts/base.html" %}
+{% autoescape off %}
+{% block content %}
+<h3>Howdy,</h3>
+<p>
+To start the Blob adventures, please confirm your email address below
+</p>
+{{ verification_link }}
+<p>
+If you did not sign up on Sticky blobs, you can simply disregard this email.
+</p>
+{% endblock %}
+{% endautoescape %}
