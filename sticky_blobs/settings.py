@@ -14,7 +14,7 @@ from datetime import timedelta
 SECRET_KEY = 'django-insecure-kf391u-evw^-8qyk^(d0cef(+e@gun^2yk2syn*8etvxcahhxu'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = []
 
@@ -122,9 +122,11 @@ WSGI_APPLICATION = 'sticky_blobs.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'sticky_blobs',
-        'USER': 'root',
-        'PASSWORD': 'Ugochaini@101.'
+        'NAME': 'n3c3wkr4ybcfrrhw',
+        'USER': 'hlxqjox405isyahg',
+        'PASSWORD': 'e06gr5pr3bd7riqa',
+        'HOST': 'esilxl0nthgloe1y.chr7pe7iynqr.eu-west-1.rds.amazonaws.com',
+        'PORT': '3306',
     }
 }
 
