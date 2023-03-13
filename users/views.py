@@ -10,7 +10,7 @@ from django.db import transaction
 
 from .serializers import UserSerializer, MyTokenObtainPairSerializer
 from .models import User
-from helpers.utils import account_activation_token, send_verification_mail
+from helpers.utils import account_activation_token
 
 
 class RegisterView(APIView):
@@ -18,15 +18,7 @@ class RegisterView(APIView):
     def post(self, request):
         serializer = UserSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
-        user_instance = serializer.save()
-
-        current_site = get_current_site(request)
-        verification_link = 'http://{}/account-activation/{}/{}'.format(
-            current_site.domain, urlsafe_base64_encode(
-            force_bytes(user_instance.pk)), account_activation_token.make_token(user_instance))
-        print('Account verification link: %s' % verification_link)
-        send_verification_mail(
-            user_instance.email, verification_link)
+        serializer.save()
         return Response(data=serializer.data, status=status.HTTP_200_OK)
     
 

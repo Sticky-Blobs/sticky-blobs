@@ -12,16 +12,3 @@ class TokenGenerator(PasswordResetTokenGenerator):
         )
     
 account_activation_token = TokenGenerator()
-
-
-
-
-def send_verification_mail(recipient_email: str, verification_link: str):
-    message = render_to_string('mails/users/verification_mail.html', {
-        "verification_link": verification_link})
-    to_email = recipient_email
-    raw_message = strip_tags(message)
-    mail_subject = 'Email Verification for Sticky Blobs'
-    from_email = '%s <noreply@%s>' % ('Sticky Blobs', 'stickyblobs.com')
-    mail.send_mail(mail_subject, raw_message, from_email,
-                   [to_email], html_message=message)
