@@ -1,1 +1,1 @@
-web gunicorn sticky_blobs.wsgi: application --log-file -
+web gunicorn sticky_blobs.wsgi:application -w 3
