@@ -52,4 +52,4 @@ class WhiteListView(generics.ListCreateAPIView):
 class WhiteListDetail(generics.RetrieveUpdateDestroyAPIView):
     permission_classes = (IsAdminOrRetrieveOnly,)
     queryset = WhiteList.objects.all()
-    serializer_class = WhiteListSerializer
+    serializer_class = WhiteListSerializer()
