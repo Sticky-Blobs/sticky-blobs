@@ -1,7 +1,7 @@
 from rest_framework.views import APIView
 from rest_framework import status, generics
 from rest_framework.response import Response
-from rest_framework.permissions import IsAuthenticated
+from rest_framework.permissions import IsAuthenticated, AllowAny
 from django.shortcuts import get_object_or_404
 from django.utils import dateparse, timezone
 
@@ -44,11 +44,12 @@ class GamePlayViewDetail(APIView):
     
 
 class WhiteListView(generics.ListCreateAPIView):
+    permission_classes = (AllowAny,)
     queryset = WhiteList.objects.all()
     serializer_class = WhiteListSerializer()
     
 
 class WhiteListDetail(generics.RetrieveUpdateDestroyAPIView):
-    permission_classes = (IsAdminOrRetrieveOnly)
+    permission_classes = (IsAdminOrRetrieveOnly,)
     queryset = WhiteList.objects.all()
     serializer_class = WhiteListSerializer

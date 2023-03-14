@@ -14,3 +14,6 @@ class GamePlaySession(models.Model):
 class WhiteList(models.Model):
     wallet_address = models.CharField(max_length=500, unique=True)
     faction_choice = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.wallet_address
