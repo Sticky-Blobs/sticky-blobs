@@ -1,12 +1,12 @@
 from rest_framework.views import APIView
 from rest_framework import status, generics
 from rest_framework.response import Response
-from rest_framework.permissions import IsAuthenticated, IsAdminUser
+from rest_framework.permissions import IsAuthenticated
 from django.shortcuts import get_object_or_404
 from django.utils import dateparse, timezone
 
-from .models import GamePlaySession
-from .serializers import GamePlaySerializer
+from .models import GamePlaySession, WhiteList
+from .serializers import GamePlaySerializer, WhiteListSerializer
 from .permissions import IsAdminOrRetrieveOnly
 
 class GamePlayView(generics.ListCreateAPIView):
@@ -41,3 +41,14 @@ class GamePlayViewDetail(APIView):
         game_play.save(update_fields=["total_game_time"])
         serializer.save()
         return Response(serializer.data)
+    
+
+class WhiteListView(generics.ListCreateAPIView):
+    queryset = WhiteList.objects.all()
+    serializer_class = WhiteListSerializer()
+    
+
+class WhiteListDetail(generics.RetrieveUpdateDestroyAPIView):
+    permission_classes = (IsAdminOrRetrieveOnly)
+    queryset = WhiteList.objects.all()
+    serializer_class = WhiteListSerializer
