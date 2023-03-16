@@ -16,7 +16,7 @@ from datetime import timedelta
 SECRET_KEY = 'django-insecure-kf391u-evw^-8qyk^(d0cef(+e@gun^2yk2syn*8etvxcahhxu'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = [
     'stickyblobs.com',
