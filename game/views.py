@@ -46,10 +46,10 @@ class GamePlayViewDetail(APIView):
 class WhiteListView(generics.ListCreateAPIView):
     permission_classes = (AllowAny,)
     queryset = WhiteList.objects.all()
-    serializer_class = WhiteListSerializer()
+    serializer_class = WhiteListSerializer
     
 
 class WhiteListDetail(generics.RetrieveUpdateDestroyAPIView):
     permission_classes = (IsAdminOrRetrieveOnly,)
     queryset = WhiteList.objects.all()
-    serializer_class = WhiteListSerializer()
+    serializer_class = WhiteListSerializer
