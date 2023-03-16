@@ -14,6 +14,7 @@ class GamePlaySession(models.Model):
 class WhiteList(models.Model):
     wallet_address = models.CharField(max_length=500, unique=True)
     twitter_username = models.CharField(max_length=500)
+    faction = models.CharField(max_length=500, blank=True, null=True)
 
     def __str__(self):
         return self.twitter_username
