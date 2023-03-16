@@ -17,9 +17,9 @@ from datetime import timedelta
 SECRET_KEY = 'django-insecure-kf391u-evw^-8qyk^(d0cef(+e@gun^2yk2syn*8etvxcahhxu'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['stickyblobs.com']
+ALLOWED_HOSTS = ['stickyblobs.com', 'http://127.0.0.1:8000/admin/']
 
 
 # Application definition
@@ -170,7 +170,8 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-django_heroku.settings(locals())
+
+# django_heroku.settings(locals())
 
 
 AUTH_USER_MODEL = 'users.User'
